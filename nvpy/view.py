@@ -688,6 +688,9 @@ class View(utils.SubjectMixin):
         # store cursor position first! returns e.g. 8.32
         #cursor_pos = self.text_note.index(tk.INSERT)
 
+        logging.debug("Skipping attempt to refresh notes list") #If you want to refresh, trigger it yourself by editing the search. Avoids flicker in left column.
+        return
+
         # since 0.6, set_search_entry() tries to leave the currently selected
         # note untouched if it still exists in the newly returned list
         # so we don't have to do an explicit reselect.
@@ -950,7 +953,7 @@ class View(utils.SubjectMixin):
         # during sash moving and resizing
         self.statusbar = StatusBar(self.root)
         self.statusbar.set_status('%s', 'Welcome to nvPY!')
-        self.statusbar.pack(fill=tk.X, side=tk.BOTTOM, padx=3, pady=3)
+        # self.statusbar.pack(fill=tk.X, side=tk.BOTTOM, padx=3, pady=3)
 
         search_frame = tk.Frame(self.root)
 
@@ -1026,7 +1029,7 @@ class View(utils.SubjectMixin):
         paned_window.add(note_frame)
 
         note_pinned_frame = tk.Frame(note_frame)
-        note_pinned_frame.pack(side=tk.BOTTOM, fill=tk.X)
+        # note_pinned_frame.pack(side=tk.BOTTOM, fill=tk.X)
 
         pinned_label = tk.Label(note_pinned_frame, text="Pinned")
         pinned_label.pack(side=tk.LEFT)
