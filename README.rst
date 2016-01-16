@@ -1,4 +1,10 @@
 ====
+Gwyn's fork
+====
+
+Designed to be distraction-free. Removes tags, removes statusbar, and disables flickery left-hand-pane refresh.
+
+====
 nvPY
 ====
 
